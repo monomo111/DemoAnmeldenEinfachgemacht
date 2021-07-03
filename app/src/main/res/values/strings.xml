@@ -44,4 +44,7 @@
     <string name="abschicken">Anmeldeemail erzeugen</string>
     <string name="abschicken_fehler">Es fehlen noch Eingaben</string>
     <string name="angaben_zur_versammlung">Angaben zur Versammlung</string>
+    <string name="absender_der_anmeldung">Absender der Anmeldung</string>
+    <string name="werden_ordner_eingesetzt">Werden Ordner eingesetzt?</string>
+    <string name="versammlungsbeh_rde">Versammlungsbehörde</string>
 </resources>

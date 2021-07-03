@@ -26,6 +26,43 @@
                 android:layout_height="match_parent"
                 android:background="#F4D781">
 
+                <TextView
+                    android:id="@+id/behoerdeTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_span="2"
+                    android:fontFamily="sans-serif-black"
+                    android:gravity="center"
+                    android:text="@string/versammlungsbeh_rde"
+                    android:textSize="22sp" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <CheckBox
+                    android:id="@+id/emailamtcheckBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="false"/>
+
+                <EditText
+                    android:id="@+id/emailamtText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:autofillHints="@string/emailadresse_anmeldebeh_rde"
+                    android:hint="@string/emailadresse_anmeldebeh_rde"
+                    android:inputType="textEmailAddress"
+                    android:textSize="18sp" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#F4D781"
+                android:layout_marginTop="24dp">
+
                 <CheckBox
                     android:id="@+id/versammlungsleitungcheckBox"
                     android:layout_width="match_parent"
@@ -387,25 +424,16 @@
                     android:lines="5"
                     android:textSize="18sp" />
             </TableRow>
-
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <CheckBox
-                    android:id="@+id/emailamtcheckBox"
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/ordnerSwitch"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:clickable="false"/>
-
-                <EditText
-                    android:id="@+id/emailamtText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_span="1"
-                    android:autofillHints="@string/emailadresse_anmeldebeh_rde"
-                    android:hint="@string/emailadresse_anmeldebeh_rde"
-                    android:inputType="textEmailAddress"
+                    android:layout_span="2"
+                    android:text="@string/werden_ordner_eingesetzt"
                     android:textSize="18sp" />
             </TableRow>
 
@@ -535,6 +563,19 @@
                     android:textSize="18sp" />
 
             </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:id="@+id/absenderText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_span="2"
+                    android:hint="@string/absender_der_anmeldung"
+                    android:textSize="18sp" />
+
+            </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
@@ -547,20 +588,6 @@
                     android:layout_span="2"
                     android:text="@string/abschicken"
                     android:background="#F4D781"/>
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <EditText
-                    android:id="@+id/debugeditText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_span="2"
-                    android:gravity="start|top"
-                    android:inputType="textMultiLine"
-                    android:textSize="16sp" />
             </TableRow>
         </TableLayout>
     </ScrollView>
