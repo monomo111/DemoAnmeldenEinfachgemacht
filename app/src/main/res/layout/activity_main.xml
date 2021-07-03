@@ -76,7 +76,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-black"
                     android:foregroundGravity="center"
-                    android:gravity="start|right"
+                    android:gravity="start|end"
                     android:text="@string/versammlungsleitung"
                     android:textSize="22sp" />
             </TableRow>
@@ -226,7 +226,7 @@
                     android:id="@+id/angabenTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="start|right"
+                    android:layout_gravity="start|end"
                     android:layout_span="1"
                     android:fontFamily="sans-serif-black"
                     android:foregroundGravity="center"
@@ -573,6 +573,8 @@
                     android:layout_height="match_parent"
                     android:layout_span="2"
                     android:hint="@string/absender_der_anmeldung"
+                    android:autofillHints="@string/absender_der_anmeldung"
+                    android:inputType="textEmailAddress"
                     android:textSize="18sp" />
 
             </TableRow>
