@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DemoAnmeldenEinfachgemacht</string>
+    <string name="app_name">Demo anmelden einfach gemacht</string>
     <string name="versammlungsleitung">Versammlungsleitung</string>
     <string name="vorname">Vorname</string>
     <string name="vorname_fehlt">Vorname fehlt</string>
@@ -35,16 +35,24 @@
     <string name="versammlungsmittel">Versammlungsmittel</string>
     <string name="anzahl_infostische">Anzahl Infostische</string>
     <string name="flyer">Flyer</string>
+    <string name="flyer_ausgewaehlt">Flyer werden verteilt</string>
     <string name="banner">Banner</string>
+    <string name="banner_ausgwaehlt">Banner werden getragen</string>
     <string name="fahnen">Fahnen</string>
+    <string name="fahnen_ausgewaehlt">Fahnen werden geschwenkt</string>
     <string name="megaphone">Megaphone</string>
+    <string name="megaphone_ausgewaehlt">Megaphone wird eingesetzt</string>
     <string name="lautsprecheranlage">Lautsprecheranlage</string>
+    <string name="lautsprecheranlage_ausgewaehlt">Lautsprecheranlage im Einsatz</string>
     <string name="lautsprecherwagen">Lautsprecherwagen</string>
+    <string name="lautsprecherwagen_ausgewaehlt">Lautsprecherwagen fährt mit</string>
     <string name="b_hne">Bühne</string>
+    <string name="b_hne_ausgewaehlt">Bühne wird ausgebaut</string>
     <string name="abschicken">Anmeldeemail erzeugen</string>
     <string name="abschicken_fehler">Es fehlen noch Eingaben</string>
     <string name="angaben_zur_versammlung">Angaben zur Versammlung</string>
     <string name="absender_der_anmeldung">Absender der Anmeldung</string>
     <string name="werden_ordner_eingesetzt">Werden Ordner eingesetzt?</string>
+    <string name="werden_ordner_eingesetzt_ja">Es werden Ordner eingesetzt.</string>
     <string name="versammlungsbeh_rde">Versammlungsbehörde</string>
 </resources>

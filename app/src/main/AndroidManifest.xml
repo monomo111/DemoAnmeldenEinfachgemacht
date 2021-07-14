@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="tk.monomo.demoanmeldeneinfachgemacht">
+    package="tk.monomo.demoanmeldeneinfachgemacht"
+    android:versionCode="3"
+    android:versionName="derAnfang">
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo_eckig"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/logo_rund"
         android:supportsRtl="true"
         android:theme="@style/Theme.DemoAnmeldenEinfachgemacht">
         <activity android:name=".MainActivity">
@@ -17,5 +19,6 @@
             </intent-filter>
         </activity>
     </application>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
 </manifest>
