@@ -37,6 +37,7 @@
                     android:text="@string/versammlungsbeh_rde"
                     android:textSize="22sp" />
             </TableRow>
+
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -45,7 +46,7 @@
                     android:id="@+id/emailamtcheckBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:clickable="false"/>
+                    android:clickable="false" />
 
                 <EditText
                     android:id="@+id/emailamtText"
@@ -57,11 +58,12 @@
                     android:inputType="textEmailAddress"
                     android:textSize="18sp" />
             </TableRow>
+
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#F4D781"
-                android:layout_marginTop="24dp">
+                android:layout_marginTop="24dp"
+                android:background="#F4D781">
 
                 <CheckBox
                     android:id="@+id/versammlungsleitungcheckBox"
@@ -110,7 +112,7 @@
                     android:id="@+id/nachnamecheckBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:clickable="false"/>
+                    android:clickable="false" />
 
                 <EditText
                     android:id="@+id/nachnameText"
@@ -131,7 +133,7 @@
                     android:id="@+id/straßecheckBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:clickable="false"/>
+                    android:clickable="false" />
 
                 <EditText
                     android:id="@+id/strasseText"
@@ -152,7 +154,7 @@
                     android:id="@+id/plzcheckBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:clickable="false"/>
+                    android:clickable="false" />
 
                 <EditText
                     android:id="@+id/plzText"
@@ -174,7 +176,7 @@
                     android:id="@+id/ortcheckBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:clickable="false"/>
+                    android:clickable="false" />
 
                 <EditText
                     android:id="@+id/ortText"
@@ -195,7 +197,7 @@
                     android:id="@+id/telefoncheckBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:clickable="false"/>
+                    android:clickable="false" />
 
                 <EditText
                     android:id="@+id/telefonText"
@@ -219,8 +221,8 @@
                     android:id="@+id/angabencheckBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:clickable="false"/>
+                    android:clickable="false"
+                    android:gravity="center" />
 
                 <TextView
                     android:id="@+id/angabenTextView"
@@ -242,7 +244,7 @@
                     android:id="@+id/versammlungsnamecheckBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:clickable="false"/>
+                    android:clickable="false" />
 
                 <EditText
                     android:id="@+id/versammlungsnameText"
@@ -263,7 +265,7 @@
                     android:id="@+id/versammlungsortcheckBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:clickable="false"/>
+                    android:clickable="false" />
 
                 <EditText
                     android:id="@+id/versammlungsortText"
@@ -284,7 +286,7 @@
                     android:id="@+id/teilnehmerzahlcheckBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:clickable="false"/>
+                    android:clickable="false" />
 
                 <EditText
                     android:id="@+id/teilnehmerzahlText"
@@ -305,7 +307,7 @@
                     android:id="@+id/versammlungsdatumcheckBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:clickable="false"/>
+                    android:clickable="false" />
 
                 <EditText
                     android:id="@+id/versammlungsdatumText"
@@ -326,7 +328,7 @@
                     android:id="@+id/versammlungsbegincheckBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:clickable="false"/>
+                    android:clickable="false" />
 
                 <EditText
                     android:id="@+id/versammlungsbeginText"
@@ -347,7 +349,7 @@
                     android:id="@+id/versammlungsendecheckBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:clickable="false"/>
+                    android:clickable="false" />
 
                 <EditText
                     android:id="@+id/versammlungsendeText"
@@ -370,7 +372,7 @@
                     android:id="@+id/ablaufcheckBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:clickable="false"/>
+                    android:clickable="false" />
 
                 <TextView
                     android:id="@+id/ablaufTextView"
@@ -424,6 +426,7 @@
                     android:lines="5"
                     android:textSize="18sp" />
             </TableRow>
+
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -440,8 +443,8 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#F4D781"
-                android:layout_marginTop="24dp">
+                android:layout_marginTop="24dp"
+                android:background="#F4D781">
 
                 <TextView
                     android:id="@+id/mittelTextView"
@@ -563,6 +566,7 @@
                     android:textSize="18sp" />
 
             </TableRow>
+
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -572,8 +576,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_span="2"
-                    android:hint="@string/absender_der_anmeldung"
                     android:autofillHints="@string/absender_der_anmeldung"
+                    android:hint="@string/absender_der_anmeldung"
                     android:inputType="textEmailAddress"
                     android:textSize="18sp" />
 
@@ -588,8 +592,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_span="2"
-                    android:text="@string/abschicken"
-                    android:background="#F4D781"/>
+                    android:background="#F4D781"
+                    android:text="@string/abschicken" />
             </TableRow>
         </TableLayout>
     </ScrollView>

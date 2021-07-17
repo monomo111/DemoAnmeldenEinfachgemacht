@@ -3,25 +3,16 @@ package tk.monomo.demoanmeldeneinfachgemacht
 
 import android.content.DialogInterface
 import android.content.Intent
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.pdf.PdfDocument
-import android.graphics.pdf.PdfDocument.PageInfo
 import android.net.Uri
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
-import java.io.File
-import java.io.IOException
-import java.io.FileOutputStream as FileOutputStream
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var sendeButton: Button
-
     // --------------------------------------------------------
     // Versammlungsleitung
     // --------------------------------------------------------
@@ -113,8 +104,8 @@ class MainActivity : AppCompatActivity() {
     // Wie wird bei den verschiedenen Städten eine Demonstration angemeldet
     // --------------------------------------------------------
     private lateinit var stadt : Array<String>
-    private lateinit var stadtdaten : List<stadtdatenclass>
-    private data class stadtdatenclass(val stadtname: String, val emailamt : String, val webseite :String)
+    private lateinit var stadtdaten : List<Stadtdatenclass>
+    private data class Stadtdatenclass(val stadtname: String, val emailamt : String, val webseite :String)
 
     // --------------------------------------------------------
     // Was ist das denn alles was wir da so haben
@@ -311,72 +302,93 @@ class MainActivity : AppCompatActivity() {
         buehne.setOnClickListener { buehneauswahl() }
 
         absender = findViewById(R.id.absenderText)
-        stadtdaten = listOf <stadtdatenclass> (
-            stadtdatenclass("Aachen (email)","poststelle.aachen@polizei.nrw.de",""),
-            stadtdatenclass("Augsburg (email)","Versammlungsrecht@augsburg.de",""),
-            stadtdatenclass("Berlin (web)","","https://www.internetwache-polizei-berlin.de/index_2.html"),
-            stadtdatenclass("Bielefeld (email)","poststelle.bielefeld@polizei.nrw.de",""),
-            stadtdatenclass("Bochum (email)","za.sg12.bochum@polizei.nrw.de",""),
-            stadtdatenclass("Bonn (email)","ZA12.Bonn@polizei.nrw.de",""),
-            stadtdatenclass("Bottrop (email)","ZA1.2Versammlungsrecht.Muenster@polizei.nrw.de",""),
-            stadtdatenclass("Braunschweig (email)","Versammlung@braunschweig.de",""),
-            stadtdatenclass("Bremen (email)","oeffentlicheordnung@ordnungsamt.bremen.de",""),
-            stadtdatenclass("Bremerhavern (email)","oeffentlicheordnung@ordnungsamt.bremen.de",""),
-            stadtdatenclass("Chemnitz (email)","ordnungsamt@stadt-chemnitz.de",""),
-            stadtdatenclass("Dortmund (email)","poststelle.dortmund@polizei.nrw.de",""),
-            stadtdatenclass("Dresden (web)","","https://eforms.dresden.de/intelliform/forms/buergeraccount/buergeraccount-kunde/anwendungen/A32%20Anzeige%20einer%20Versammlung/index"),
-            stadtdatenclass("Duisburg (email)","poststelle.duisburg@polizei.nrw.de",""),
-            stadtdatenclass("Düsseldorf (email)","poststelle.duesseldorf@polizei.nrw.de",""),
-            stadtdatenclass("Erfurt (email)","buergeramt@erfurt.de",""),
-            stadtdatenclass("Essen (email)","ZA12Versammlungsrecht.Essen@polizei.nrw.de",""),
-            stadtdatenclass("Frankfurt am Main (email)","demo@stadt-frankfurt.de",""),
-            stadtdatenclass("Freiberg im Breisgau (web)","","https://formulare.freiburg.de/metaform/Form-Solutions/sid/assistant/5d77cd8ee4b0f2d58d3e4fe9"),
-            stadtdatenclass("Fürth (web)","","https://online-service2.nuernberg.de/intelliform/forms/n/320_oa/320_oa_d_anzeigeversammlung/index"),
-            stadtdatenclass("Gelasenkirchen (email)","poststelle.gelsenkirchen@polizei.nrw.de",""),
-            stadtdatenclass("Göttingen (email)","ordnung@goettingen.de",""),
-            stadtdatenclass("Hagen (email)","poststelle.hagen@polizei.nrw.de",""),
-            stadtdatenclass("Halle (Salle) (email)","ordnungsamt@saalekreis.de",""),
-            stadtdatenclass("Hamburg (email)","lagezentrum@polizei.hamburg.de",""),
-            stadtdatenclass("Hamm (email)","za12.hamm@polizei.nrw.de",""),
-            stadtdatenclass("Hannover (email)","versammlungsrecht@pd-h.polizei.niedersachsen.de",""),
-            stadtdatenclass("Heidelberg (email)","versammlungen@heidelberg.de",""),
-            stadtdatenclass("Heilbronn (email)","ordnungsamt@heilbronn.de",""),
-            stadtdatenclass("Herne (email)","za.sg12.bochum@polizei.nrw.de",""),
-            stadtdatenclass("Ingolstadt (web)","","https://www.ingolstadt.de/redirect.phtml?extlink=1&La=1&url_fid=3052.2035.1"),
-            stadtdatenclass("Karlsruhe (web)","","https://formulare.karlsruhe.de/metaform/Form-Solutions/sid/assistant/580ddb490cf22f42356adbd5"),
-            stadtdatenclass("Kassel (web)","","https://www.kassel.de/formulare/1/form000106.php"),
-            stadtdatenclass("Kiel (email)","ordnungsamt@kiel.de",""),
-            stadtdatenclass("Krefeld (email)","versammlungsrecht.krefeld@polizei.nrw.de",""),
-            stadtdatenclass("Koblenz (email)","ordnungsamt@stadt.koblenz.de",""),
-            stadtdatenclass("Köln (email)","ZA12Versammlungen.koeln@polizei.nrw.de",""),
-            stadtdatenclass("Leipzig (email)","ordnungsamt@leipzig.de",""),
-            stadtdatenclass("Leverkusen (email)","ZA12Versammlungen.koeln@polizei.nrw.de",""),
-            stadtdatenclass("Ludwigshafen am Rhein (email)","martin.graf@ludwigshafen.de",""),
-            stadtdatenclass("Lübeck (email)","ordnungsamt@luebeck.de",""),
-            stadtdatenclass("Mainz (email)","zkv-demo@stadt.mainz.de",""),
-            stadtdatenclass("Magdeburg (email)","versammlungsbehoerde.pi-md@polizei.sachsen-anhalt.de",""),
-            stadtdatenclass("Mannheim (email)","31versammlungen@mannheim.de",""),
-            stadtdatenclass("München (email)","versammlungen.kvr@muenchen.de",""),
-            stadtdatenclass("Münster (email)","ZA1.2Versammlungsrecht.Muenster@polizei.nrw.de",""),
-            stadtdatenclass("Mönchengladbach (email)","Poststelle.Moenchengladbach@polizei.nrw.de",""),
-            stadtdatenclass("Neuss (email)","poststelle.rhein-kreis-neuss@polizei.nrw.de",""),
-            stadtdatenclass("Nürnberg (web)","","https://online-service2.nuernberg.de/intelliform/forms/n/320_oa/320_oa_d_anzeigeversammlung/index"),
-            stadtdatenclass("Oberhausen (email)","Versammlungsrecht.Oberhausen@Polizei.NRW.de",""),
-            stadtdatenclass("Offenbach am Main (email)","ordnungsamt@offenbach.de",""),
-            stadtdatenclass("Oldenburg (email)","Ulrike.Boyens@oldenburg-kreis.de",""),
-            stadtdatenclass("Osnabrück (email)","heijmer@osnabrueck.de",""),
-            stadtdatenclass("Paderborn (email)","poststelle.paderborn@polizei.nrw.de",""),
-            stadtdatenclass("Pforzheim (email)","afo@pforzheim.de",""),
-            stadtdatenclass("Potzdam (web)","","https://polizei.brandenburg.de/onlineservice/versammlung_anmelden"),
-            stadtdatenclass("Regensburg (email)","gewerbe-ordnungsamt@lra-regensburg.de",""),
-            stadtdatenclass("Reutlingen (email)","ordnungsamt.verkehrsabteilung@reutlingen.de",""),
-            stadtdatenclass("Saarbrücken (email)","ordnungsamt@saarbruecken.de",""),
-            stadtdatenclass("Solingen (email)","poststelle.wuppertal@polizei.nrw.de",""),
-            stadtdatenclass("Stuttgart (email)","sicherheit@stuttgart.de",""),
-            stadtdatenclass("Wiesbaden (web)","","https://www.wiesbaden.de/rathaus/virtuelle-verwaltung/formulare/online-forms/anmeldung-oeffentliche-versammlung.php"),
-            stadtdatenclass("Wuppertal (email)","poststelle.wuppertal@polizei.nrw.de",""),
-            stadtdatenclass("Würzburg (email)","versammlungsanzeigen@lra-wue.bayern.de",""),
-            stadtdatenclass("Wolfsburg (email)","servicecenter@stadt.wolfsburg.de","")
+        stadtdaten = listOf <Stadtdatenclass> (
+            Stadtdatenclass("Aachen (email)","poststelle.aachen@polizei.nrw.de",""),
+            Stadtdatenclass("Augsburg (email)","Versammlungsrecht@augsburg.de",""),
+            Stadtdatenclass("Bergisch Gladbach (email)","versammlungsrecht.rheinisch-bergischer-kreis@polizei.nrw.de","" ),
+            Stadtdatenclass("Berlin (web)","","https://www.internetwache-polizei-berlin.de/index_2.html"),
+            Stadtdatenclass("Bielefeld (email)","poststelle.bielefeld@polizei.nrw.de",""),
+            Stadtdatenclass("Bochum (email)","za.sg12.bochum@polizei.nrw.de",""),
+            Stadtdatenclass("Bonn (email)","ZA12.Bonn@polizei.nrw.de",""),
+            Stadtdatenclass("Bottrop (email)","ZA1.2Versammlungsrecht.Muenster@polizei.nrw.de",""),
+            Stadtdatenclass("Braunschweig (email)","Versammlung@braunschweig.de",""),
+            Stadtdatenclass("Bremen (email)","oeffentlicheordnung@ordnungsamt.bremen.de",""),
+            Stadtdatenclass("Bremerhavern (email)","oeffentlicheordnung@ordnungsamt.bremen.de",""),
+            Stadtdatenclass("Chemnitz (email)","ordnungsamt@stadt-chemnitz.de",""),
+            Stadtdatenclass("Cottbus (web)","","https://polizei.brandenburg.de/onlineservice/versammlung_anmelden"),
+            Stadtdatenclass("Dortmund (email)","poststelle.dortmund@polizei.nrw.de",""),
+            Stadtdatenclass("Dresden (web)","","https://eforms.dresden.de/intelliform/forms/buergeraccount/buergeraccount-kunde/anwendungen/A32%20Anzeige%20einer%20Versammlung/index"),
+            Stadtdatenclass("Duisburg (email)","poststelle.duisburg@polizei.nrw.de",""),
+            Stadtdatenclass("Düren (email)","ZA12.Dueren@polizei.nrw.de",""),
+            Stadtdatenclass("Düsseldorf (email)","poststelle.duesseldorf@polizei.nrw.de",""),
+            Stadtdatenclass("Esslingen (email)","stadt@esslingen.de",""),
+            Stadtdatenclass("Erfurt (email)","buergeramt@erfurt.de",""),
+            Stadtdatenclass("Erlangen (email)","poststelle@erlangen-hoechstadt.de",""),
+            Stadtdatenclass("Essen (email)","ZA12Versammlungsrecht.Essen@polizei.nrw.de",""),
+            Stadtdatenclass("Frankfurt am Main (email)","demo@stadt-frankfurt.de",""),
+            Stadtdatenclass("Freiberg im Breisgau (web)","","https://formulare.freiburg.de/metaform/Form-Solutions/sid/assistant/5d77cd8ee4b0f2d58d3e4fe9"),
+            Stadtdatenclass("Fürth (web)","","https://online-service2.nuernberg.de/intelliform/forms/n/320_oa/320_oa_d_anzeigeversammlung/index"),
+            Stadtdatenclass("Gelasenkirchen (email)","poststelle.gelsenkirchen@polizei.nrw.de",""),
+            Stadtdatenclass("Gera (email)","versammlungen@gera.de",""),
+            Stadtdatenclass("Göttingen (email)","ordnung@goettingen.de",""),
+            Stadtdatenclass("Gütersloh (email)","poststelle.guetersloh@polizei.nrw.de",""),
+            Stadtdatenclass("Hagen (email)","poststelle.hagen@polizei.nrw.de",""),
+            Stadtdatenclass("Halle (Salle) (email)","ordnungsamt@saalekreis.de",""),
+            Stadtdatenclass("Hamburg (email)","lagezentrum@polizei.hamburg.de",""),
+            Stadtdatenclass("Hamm (email)","za12.hamm@polizei.nrw.de",""),
+            Stadtdatenclass("Hanau (email)","Kreisordnung@mkk.de",""),
+            Stadtdatenclass("Hannover (email)","versammlungsrecht@pd-h.polizei.niedersachsen.de",""),
+            Stadtdatenclass("Heidelberg (email)","versammlungen@heidelberg.de",""),
+            Stadtdatenclass("Heilbronn (email)","ordnungsamt@heilbronn.de",""),
+            Stadtdatenclass("Herne (email)","za.sg12.bochum@polizei.nrw.de",""),
+            Stadtdatenclass("Ingolstadt (web)","","https://www.ingolstadt.de/redirect.phtml?extlink=1&La=1&url_fid=3052.2035.1"),
+            Stadtdatenclass("Iserlohn (email)","poststelle.maerkischer-kreis@polizei.nrw.de",""),
+            Stadtdatenclass("Jena (email)","versammlungen@jena.de",""),
+            Stadtdatenclass("Karlsruhe (web)","","https://formulare.karlsruhe.de/metaform/Form-Solutions/sid/assistant/580ddb490cf22f42356adbd5"),
+            Stadtdatenclass("Kassel (web)","","https://www.kassel.de/formulare/1/form000106.php"),
+            Stadtdatenclass("Kiel (email)","ordnungsamt@kiel.de",""),
+            Stadtdatenclass("Krefeld (email)","versammlungsrecht.krefeld@polizei.nrw.de",""),
+            Stadtdatenclass("Koblenz (email)","ordnungsamt@stadt.koblenz.de",""),
+            Stadtdatenclass("Köln (email)","ZA12Versammlungen.koeln@polizei.nrw.de",""),
+            Stadtdatenclass("Leipzig (email)","ordnungsamt@leipzig.de",""),
+            Stadtdatenclass("Leverkusen (email)","ZA12Versammlungen.koeln@polizei.nrw.de",""),
+            Stadtdatenclass("Ludwigsburg (email)","rathaus@ludwigsburg.de",""),
+            Stadtdatenclass("Ludwigshafen am Rhein (email)","martin.graf@ludwigshafen.de",""),
+            Stadtdatenclass("Lübeck (email)","ordnungsamt@luebeck.de",""),
+            Stadtdatenclass("Mainz (email)","zkv-demo@stadt.mainz.de",""),
+            Stadtdatenclass("Magdeburg (email)","versammlungsbehoerde.pi-md@polizei.sachsen-anhalt.de",""),
+            Stadtdatenclass("Mannheim (email)","31versammlungen@mannheim.de",""),
+            Stadtdatenclass("München (email)","versammlungen.kvr@muenchen.de",""),
+            Stadtdatenclass("Münster (email)","ZA1.2Versammlungsrecht.Muenster@polizei.nrw.de",""),
+            Stadtdatenclass("Moers (email)","DirZA.wesel@polizei.nrw.de",""),
+            Stadtdatenclass("Mönchengladbach (email)","Poststelle.Moenchengladbach@polizei.nrw.de",""),
+            Stadtdatenclass("Neuss (email)","poststelle.rhein-kreis-neuss@polizei.nrw.de",""),
+            Stadtdatenclass("Nürnberg (web)","","https://online-service2.nuernberg.de/intelliform/forms/n/320_oa/320_oa_d_anzeigeversammlung/index"),
+            Stadtdatenclass("Oberhausen (email)","Versammlungsrecht.Oberhausen@Polizei.NRW.de",""),
+            Stadtdatenclass("Offenbach am Main (email)","ordnungsamt@offenbach.de",""),
+            Stadtdatenclass("Oldenburg (email)","Ulrike.Boyens@oldenburg-kreis.de",""),
+            Stadtdatenclass("Osnabrück (email)","heijmer@osnabrueck.de",""),
+            Stadtdatenclass("Paderborn (email)","poststelle.paderborn@polizei.nrw.de",""),
+            Stadtdatenclass("Pforzheim (email)","afo@pforzheim.de",""),
+            Stadtdatenclass("Potzdam (web)","","https://polizei.brandenburg.de/onlineservice/versammlung_anmelden"),
+            Stadtdatenclass("Recklinghausen (email)","versammlungsrecht.recklinghausen@polizei.nrw.de",""),
+            Stadtdatenclass("Regensburg (email)","gewerbe-ordnungsamt@lra-regensburg.de",""),
+            Stadtdatenclass("Reutlingen (email)","ordnungsamt.verkehrsabteilung@reutlingen.de",""),
+            Stadtdatenclass("Remscheid (email)","versammlungsrecht.wuppertal@polizei.nrw.de",""),
+            Stadtdatenclass("Saarbrücken (email)","ordnungsamt@saarbruecken.de",""),
+            Stadtdatenclass("Salzgitter (web)","","https://formulare.salzgitter.de/sz/32/versammlung.html"),
+            Stadtdatenclass("Schwerin (email)","malehmann@schwerin.de",""),
+            Stadtdatenclass("Siegen (email)","za.siegen-wittgenstein@polizei.nrw.de",""),
+            Stadtdatenclass("Solingen (email)","poststelle.wuppertal@polizei.nrw.de",""),
+            Stadtdatenclass("Stuttgart (email)","sicherheit@stuttgart.de",""),
+            Stadtdatenclass("Trier (email)","ordnungsamt@trier.de",""),
+            Stadtdatenclass("Tübingen (email)","ordnung@tuebingen.de",""),
+            Stadtdatenclass("Wiesbaden (web)","","https://www.wiesbaden.de/rathaus/virtuelle-verwaltung/formulare/online-forms/anmeldung-oeffentliche-versammlung.php"),
+            Stadtdatenclass("Witten (email)","za.sg12.bochum@polizei.nrw.de",""),
+            Stadtdatenclass("Wuppertal (email)","poststelle.wuppertal@polizei.nrw.de",""),
+            Stadtdatenclass("Würzburg (email)","versammlungsanzeigen@lra-wue.bayern.de",""),
+            Stadtdatenclass("Wolfsburg (email)","servicecenter@stadt.wolfsburg.de",""),
+            Stadtdatenclass("Blank Email"," ","")
         )
     }
     private fun ordnerauswahl() {
@@ -455,42 +467,60 @@ class MainActivity : AppCompatActivity() {
         nachricht += "\n\n"
 
         if (route.length() > 3) {
-            nachricht += "Folgende Route ist geplant:\n"
+            nachricht += "Folgende Route ist angedacht:\n"
             nachricht += route.text.toString()
+            nachricht += "\n"
         } else {
-            nachricht += "Die Versammlung wird nur am Versammlungsort stattfinden."
+            nachricht += "Die Versammlung wird nur am Versammlungsort statt finden.\n"
         }
         // Checken ob Versammlungsmittel benötigt werden.
-        var mittel = ""
+        var first : Boolean = true
+        var mittelliste =""
         if (anzahltische.length() > 0) {
-            mittel += anzahltische.text.toString()
-            mittel += " Infostische.\n"
+            mittelliste += anzahltische.text.toString()
+            mittelliste += " Infostisch(e)"
+            first = false
         }
         if (flyer.isChecked) {
-            mittel += "Flyer\n"
+            if(!first)mittelliste += ", "
+            mittelliste +="Flyer"
+            first = false
         }
         if (banner.isChecked) {
-            mittel += "Spruchbänder / Banner\n"
+            if(!first)mittelliste += ", "
+            mittelliste +="\"Spruchbänder / Banner\""
+            first = false
         }
         if (fahnen.isChecked) {
-            mittel += "Fahnen\n"
+            if(!first)mittelliste += ", "
+            mittelliste +="Fahnen"
+            first = false
         }
         if(megaphone.isChecked) {
-            mittel += "Megaphone"
+            if(!first)mittelliste += ", "
+            mittelliste +="Megaphone"
+            first = false
         }
         if(lautsprecher.isChecked) {
-            mittel += "Lautsprecher"
+            if(!first)mittelliste += ", "
+            mittelliste +="Lautsprecheranlage"
+            first = false
         }
         if(lautsprecherwagen.isChecked) {
-            mittel += "Lautsprecherwagen\n"
+            if(!first)mittelliste += ", "
+            mittelliste +="Lautsprecherwagen"
+            first = false
         }
         if(buehne.isChecked) {
-            mittel += "Bühne\n"
+            if(!first)mittelliste += ", "
+            mittelliste +="Bühne"
+            first = false
         }
-        if (mittel.length > 3) {
-            nachricht += "\nFolgende Versammlungsmittel werden bei der Versammlung verwendet.\n"
-            nachricht += mittel
+        if (!first) {
+            nachricht += "\nFolgende Versammlungsmittel werden bei der Versammlung eingesetzt:\n"
+            nachricht += mittelliste
         }
+
         nachricht += "\n\n"
         nachricht += "Mit freundlichen Grüßen "
         if (absender.length() > 3) {
